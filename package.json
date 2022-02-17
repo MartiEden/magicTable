@@ -1,0 +1,21 @@
+{
+  "name": "magictable",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "scripts/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartiEden/magicTable.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartiEden/magicTable/issues"
+  },
+  "homepage": "https://github.com/MartiEden/magicTable#readme"
+}
