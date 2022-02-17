@@ -1,6 +1,5 @@
 export class GridView {
 
-    //Props
     constructor() {
         this._header = '';
         this._headerClass = [];
@@ -11,7 +10,7 @@ export class GridView {
 
     //Methods
 
-    set header(header) {
+    setHeader(header) {
         if (typeof header === 'string' && header.trim() != '') {
             this._header = header.trim();
             return true;
@@ -19,7 +18,8 @@ export class GridView {
         return false;
     }
 
-    set headerClass(headerClass) {
+
+    setHeaderClass(headerClass) {
         if (typeof headerClass === 'object') {
             this._headerClass = headerClass;
             return true;
@@ -27,7 +27,8 @@ export class GridView {
         return false;
     }
 
-    set element(element) {
+
+    setElement(element) {
         if (document.querySelector(element)) {
             this._element = element;
             return true;
@@ -35,7 +36,13 @@ export class GridView {
         return false;
     }
 
-    render() {
+
+    render(data) {
+        this.setElement(data.element);
+        this.setHeaderClass(data.headerClass);
+        this.attribute = data.attribute;
+        this.setHeader(data.header);
+        this.data = data.data;
         // show header
         if (this._header) {
             const header = document.createElement('h1');
@@ -65,16 +72,16 @@ export class GridView {
         table.append(trHeader);
         // draw table
         for (let i = 0; i < this.data.length; i++) {
-            let dataArr = this.data[i]; // одна строка данных
+            let dataArr = this.data[i]; // one data row
             let tr = document.createElement('tr');
             for (let key in this.attribute) {
                 let td = document.createElement('td');
                 let value = dataArr[key];
-                // есть ли функция в value
+                // is value prop
                 if (this.attribute[key].value) {
                     value = this.attribute[key].value(dataArr);
                 }
-                // атрибут src
+                // is attr src
                 if (this.attribute[key].src) {
                     td.innerHTML = value;
                 }
@@ -88,5 +95,4 @@ export class GridView {
 
         document.querySelector(this._element).append(table);
     }
-
 }
