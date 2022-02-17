@@ -1,4 +1,4 @@
-# magicTable
+# magicTable - in progress
 
 To create table you have to :
 ```
